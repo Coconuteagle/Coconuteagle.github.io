@@ -12,6 +12,12 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    <style>
+.df-messenger .df-messenger-chat-icon {
+    background-image: url("your_icon_url");
+}
+</style>
+
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
