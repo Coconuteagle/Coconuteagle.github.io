@@ -12,7 +12,12 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-  <script>  
+    <style>
+.df-messenger .df-messenger-chat-icon {
+    background-image: url("/assets/images/88x88.png");
+}
+</style>
+
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
@@ -37,7 +42,6 @@
     </div>
 
     {% include scripts.html %}
-
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <df-messenger
   intent="WELCOME"
@@ -46,6 +50,5 @@
   agent-id="df2fdb06-5da2-4db0-8f6e-b2fd1ad5cee6"
   language-code="ko"
 ></df-messenger>
-
   </body>
 </html>
