@@ -6,7 +6,7 @@
 }
 
 .grid-item {
-  lex: 0 1 calc(33.33% - 2%);
+  width: 32%;
   box-sizing: border-box;
   margin: 1%;
   background-color: white;
