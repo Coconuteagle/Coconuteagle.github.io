@@ -25,7 +25,7 @@ url                      : # the base hostname & protocol for your site e.g. "ht
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 # teaser                   : "/assets/images/1324.png"
-logo                     : "/assets/images/120x120.png"
+logo                     : "/assets/images/150.png"
 masthead_title           : 사립유치원 예결산 업무 챗봇
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
