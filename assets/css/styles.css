@@ -6,7 +6,7 @@
 }
 
 .grid-item {
-  width: 21%; /* 변경된 부분 */
+  lex: 0 1 calc(33.33% - 2%);
   box-sizing: border-box;
   margin: 1%;
   background-color: white;
