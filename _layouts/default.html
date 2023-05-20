@@ -42,14 +42,7 @@
     </div>
 
     {% include scripts.html %}
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="학원_민원_챗봇"
-  agent-id="df2fdb06-5da2-4db0-8f6e-b2fd1ad5cee6"
-  language-code="ko"
-></df-messenger>
-    window.addEventListener('load', (event) => {
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1">    window.addEventListener('load', (event) => {
     var dfMessenger = document.querySelector('df-messenger');
     var interval = setInterval(function() {
         var chatIcon = dfMessenger.shadowRoot.querySelector('df-messenger-chat-icon');
@@ -58,7 +51,14 @@
             clearInterval(interval);
         }
     }, 1000);
-});
+});</script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="학원_민원_챗봇"
+  agent-id="df2fdb06-5da2-4db0-8f6e-b2fd1ad5cee6"
+  language-code="ko"
+></df-messenger>
+
 
   </body>
 </html>
