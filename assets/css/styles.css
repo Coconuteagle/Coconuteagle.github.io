@@ -12,4 +12,10 @@
   box-sizing: border-box;
   border: 1px solid #eaeaea;
   border-radius: 4px;
+  position: relative;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
 }
