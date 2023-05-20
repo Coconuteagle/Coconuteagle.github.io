@@ -6,7 +6,7 @@
 }
 
 .grid-item {
-  flex: 0 1 calc(32% - 2%);
+  width: 32%; /* 변경된 부분 */
   box-sizing: border-box;
   margin: 1%;
   background-color: white;
