@@ -8,8 +8,8 @@ layout: home
     <article class="grid-item">
       <a href="{{ post.url }}">
         <div class="post__image">
-          {% if post.teaser %}
-            <img src="{{ post.teaser }}" alt="{{ post.title }} 티저 이미지">
+          {% if post.header.teaser %}
+            <img src="{{ post.header.teaser }}" alt="{{ post.title }} 티저 이미지">
           {% else %}
             <img src="{{ site.teaser }}" alt="{{ post.title }} 티저 이미지">
           {% endif %}
