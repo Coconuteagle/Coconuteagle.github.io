@@ -17,6 +17,9 @@ layout: default
     {% include breadcrumbs.html %}
   {% endunless %}
 {% endif %}
+{% if page.teaser %}
+<img src="{{ page.teaser }}" alt="티저 이미지">
+{% endif %}
 
 <div id="main" role="main">
   {% include sidebar.html %}
