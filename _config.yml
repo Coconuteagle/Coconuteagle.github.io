@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 locale                   : "en-US"
 title                    : "사립유치원 예결산 업무 챗봇"
 header:
-  image: "/assets/images/1234.png"
+  image: /assets/images/1234.png
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Your Name"
