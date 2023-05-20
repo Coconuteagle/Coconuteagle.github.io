@@ -6,7 +6,7 @@
 }
 
 .grid-item {
-  width: 32%; /* 변경된 부분 */
+  flex: 1 0 30%; /* 30%로 너비 조정 */
   box-sizing: border-box;
   margin: 1%;
   background-color: white;
@@ -21,9 +21,11 @@
 }
 
 .tiles {
-  display: flex; /* 추가된 부분 */
-  flex-wrap: wrap; /* 추가된 부분 */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; /* 추가: 모든 아이템의 높이를 동일하게 맞춤 */
 }
+
 .post__title {
-  font-size: 9px; /* 원하는 글자 크기로 조절 */
+  font-size: 16px; /* 16px로 변경 */
 }
