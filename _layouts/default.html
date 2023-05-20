@@ -43,24 +43,29 @@
 
     {% include scripts.html %}
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="학원_민원_챗봇"
-  agent-id="df2fdb06-5da2-4db0-8f6e-b2fd1ad5cee6"
-  language-code="ko"
-></df-messenger>   
+<df-messenger intent="WELCOME" chat-title="학원_민원_챗봇" agent-id="df2fdb06-5da2-4db0-8f6e-b2fd1ad5cee6" language-code="ko"></df-messenger>
 
 <script>
-window.addEventListener('load', (event) => {
-    var dfMessenger = document.querySelector('df-messenger');
-    var interval = setInterval(function() {
-        var chatIcon = dfMessenger.shadowRoot.querySelector('df-messenger-chat-icon');
-        if(chatIcon) {
-            chatIcon.style.backgroundImage = 'url("/88x88.png")!important';
-            clearInterval(interval);
+  window.addEventListener('load', (event) => {
+    const targetNode = document.querySelector('df-messenger');
+    const observerConfig = { attributes: false, childList: true, subtree: true };
+    
+    const callback = (mutationsList, observer) => {
+      for (let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          const chatIcon = targetNode.shadowRoot.querySelector('df-messenger-chat-icon');
+          if (chatIcon) {
+            chatIcon.style.backgroundImage = 'url("/assets/images/88x88.png")';
+            observer.disconnect();
+            break;
+          }
         }
-    }, 1000);
-});
+      }
+    };
+    
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, observerConfig);
+  });
 </script>
 
 
