@@ -25,5 +25,5 @@
   flex-wrap: wrap; /* 추가된 부분 */
 }
 .post__title {
-  font-size: 14px; /* 원하는 글자 크기로 조절 */
+  font-size: 9px; /* 원하는 글자 크기로 조절 */
 }
