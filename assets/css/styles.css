@@ -28,4 +28,5 @@
 
 .post__title {
   font-size: 16px; /* 16px로 변경 */
+  white-space: pre-line;
 }
