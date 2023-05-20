@@ -2,7 +2,7 @@
 layout: home
 ---
 
-{% assign posts = site.posts | where: "layout", "single" %}
+{% assign posts = site.posts %}
 <div class="tiles">
   {% for post in posts %}
     <article class="grid-item">
