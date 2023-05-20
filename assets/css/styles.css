@@ -19,3 +19,7 @@
   width: 100%;
   height: auto;
 }
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+}
