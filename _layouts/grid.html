@@ -5,7 +5,7 @@ layout: home
 {% assign posts = site.posts | where: "layout", "single" %}
 <div class="tiles">
   {% for post in posts %}
-    <article class="post tiles__cell">
+    <article class="post grid-item">
       <a href="{{ post.url }}">
         <div class="post__image">
           {% if post.teaser %}
