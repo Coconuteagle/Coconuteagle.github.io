@@ -10,15 +10,15 @@
   box-sizing: border-box;
   margin: 1%;
   background-color: white;
-  padding: 20px;
+  padding: 1px;
   border: 1px solid #eaeaea;
   border-radius: 4px;
   height: 300px; /* 원하는 높이 값으로 설정하세요 */
 }
 
 .grid-item .post__image img {
-  width: 100%;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 }
 
