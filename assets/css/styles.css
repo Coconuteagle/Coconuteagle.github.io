@@ -15,7 +15,7 @@
   border-radius: 4px;
 }
 
-.grid-item img {
+.grid-item .post__image img {
   width: 100%;
   height: auto;
 }
