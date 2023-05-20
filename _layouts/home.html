@@ -1,21 +1,22 @@
 ---
-layout: default
+layout: archive
 ---
 
-{% assign posts = site.posts | where: "layout", "single" %}
-<div class="grid-container">
+{{ content }}
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
   {% for post in posts %}
-    <article class="post grid-item">
-      <a href="{{ post.url }}">
-        <div class="post__image">
-          {% if post.teaser %}
-            <img src="{{ post.teaser }}" alt="{{ post.title }} 티저 이미지">
-          {% else %}
-            <img src="{{ site.teaser }}" alt="{{ post.title }} 티저 이미지">
-          {% endif %}
-        </div>
-        <h2 class="post__title">{{ post.title }}</h2>
-      </a>
-    </article>
+    {% include archive-single.html type=entries_layout %}
   {% endfor %}
 </div>
+
+{% include paginator.html %}
