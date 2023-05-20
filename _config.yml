@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "사립유치원 예결산 업무용 챗봇"
+title                    : "사립유치원 예·결산 업무용 챗봇"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Your Name"
@@ -26,7 +26,7 @@ baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 # teaser                   : "/assets/images/1324.png"
 logo                     : "/assets/images/150.png"
-masthead_title           : 사립유치원 예결산 업무용 챗봇
+masthead_title           : 사립유치원 예·결산 업무용 챗봇
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
