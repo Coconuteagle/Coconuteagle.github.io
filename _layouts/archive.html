@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+{% for post in site.posts %}
+  {% include archive-single.html type="grid" %}
+{% endfor %}
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
