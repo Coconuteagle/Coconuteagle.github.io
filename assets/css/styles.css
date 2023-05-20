@@ -6,7 +6,7 @@
 }
 
 .grid-item {
-  flex: 1 0 21%; /* 계산: (100 - (간격 * (열 수 - 1)) / 열 수 */
+  width: 21%; /* 변경된 부분 */
   box-sizing: border-box;
   margin: 1%;
   background-color: white;
@@ -19,7 +19,8 @@
   width: 100%;
   height: auto;
 }
+
 .tiles {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex; /* 추가된 부분 */
+  flex-wrap: wrap; /* 추가된 부분 */
 }
