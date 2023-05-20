@@ -6,7 +6,7 @@
 }
 
 .grid-item {
-  width: 32%;
+  flex: 1 0 32%; /* 계산: (100 - (간격 * (열 수 - 1)) / 열 수 */
   box-sizing: border-box;
   margin: 1%;
   background-color: white;
