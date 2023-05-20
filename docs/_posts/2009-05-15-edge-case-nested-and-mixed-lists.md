@@ -1,5 +1,10 @@
 ---
-title: "Edge Case: Nested and Mixed Lists"
+layout: post
+title: "Post Title"
+date: 2009-10-05
+---
+---
+
 categories:
   - Edge Case
 tags:
