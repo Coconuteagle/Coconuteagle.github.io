@@ -56,7 +56,7 @@ window.addEventListener('load', (event) => {
     var interval = setInterval(function() {
         var chatIcon = dfMessenger.shadowRoot.querySelector('df-messenger-chat-icon');
         if(chatIcon) {
-            chatIcon.style.backgroundImage = 'url("/88x88.png")';
+            chatIcon.style.backgroundImage = 'url("/88x88.png")!important';
             clearInterval(interval);
         }
     }, 1000);
