@@ -13,6 +13,7 @@
   padding: 20px;
   border: 1px solid #eaeaea;
   border-radius: 4px;
+  height: 300px; /* 원하는 높이 값으로 설정하세요 */
 }
 
 .grid-item .post__image img {
