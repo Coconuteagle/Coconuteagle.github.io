@@ -108,7 +108,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "포천교육지원청 교육행정연구회"
   location         : "포천시"
-  email            : "tngus123456@korea.kr"
+ 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
