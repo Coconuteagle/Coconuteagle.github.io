@@ -107,7 +107,7 @@ author:
   name             : "챗위드포천교육"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "포천교육지원청 교육행정연구회"
-  location         : "포천시"
+  location         : 
  
   links:
     - label: "Email"
