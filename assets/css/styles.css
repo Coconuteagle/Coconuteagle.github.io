@@ -57,7 +57,9 @@
   object-fit: cover;
 }
 
-
+.masthead_title{
+  font-size: 2em;
+}   
 .tiles {
   display: flex;
   flex-wrap: wrap;
