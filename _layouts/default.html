@@ -1,169 +1,60 @@
-<!DOCTYPE html>
+---
+---
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
 <html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <style>
+.df-messenger .df-messenger-chat-icon {
+    background-image: url("/assets/images/88x88.png");
+}
+</style>
+<style>
+  df-messenger {
+ 
+   --df-messenger-button-titlebar-color: #eff0db;
 
-<head>
-  {% include head.html %}
-  {% include head/custom.html %}
+  }
+</style>
+  </head>
 
-  <style>
-    body {
-      position: relative;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+    {% include_cached skip-links.html %}
+    {% include_cached masthead.html %}
 
-    #chat-icon {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      cursor: pointer;
-      padding: 10px 20px;
-      background-color: #f6e830;
-      color: rgb(58, 53, 30);
-      font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-    }
+    <div class="initial-content">
+      {{ content }}
+    </div>
 
-    #chat-box {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      width: 430px;
-      height: 650px;
-      background-color: #b1c6d9;
-      border: 1px solid gray;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      flex-direction: column;
-      justify-content: space-between;
-      display: none;
-    }
+    {% if site.search == true %}
+      <div class="search-content">
+        {% include_cached search/search_form.html %}
+      </div>
+    {% endif %}
 
-    #messages {
-      height: 80%;
-      overflow-y: auto;
-    }
+    <div id="footer" class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include_cached footer.html %}
+      </footer>
+    </div>
 
-    .user,
-    .bard {
-      margin: 10px 0;
-      clear: both;
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .user {
-      float: right;
-      flex-direction: row-reverse;
-    }
-
-    .bard {
-      float: left;
-    }
-
-    .avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-
-    .user .avatar {
-      float: right;
-    }
-
-    .bard .avatar {
-      float: left;
-    }
-
-    .message-bubble {
-      max-width: 70%;
-      background-color: #f0f0f2;
-      padding: 10px;
-      border-radius: 10px 10px 10px 0;
-      margin: 5px 50px;
-      position: relative;
-    }
-
-    .user .message-bubble {
-      background-color: #f6e830;
-      color: rgb(58, 53, 30);
-      float: right;
-      border-radius: 10px 10px 10px 10px;
-    }
-
-    .user .message-bubble::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      border-width: 10px 10px 0 0;
-      border-style: solid;
-      border-color: #f6e830 transparent;
-    }
-
-    .bard .message-bubble {
-      float: left;
-      border-radius: 10px 10px 10px 10px;
-    }
-
-    .bard .message-bubble::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-width: 10px 0 0 10px;
-      border-style: solid;
-      border-color: #f0f0f2 transparent;
-    }
-
-    #chat-form {
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-    }
-
-    #chat-form input[type="text"] {
-      width: 80%;
-      padding: 5px;
-      border: none;
-      border-radius: 10px;
-    }
-
-    #chat-form input[type="submit"] {
-      background-color: #f6e830;
-      color: rgb(58, 53, 30);
-      border: none;
-      border-radius: 10px;
-      padding: 5px 10px;
-    }
-  </style>
-
-</head>
-
-<body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-  {% include_cached skip-links.html %}
-  {% include_cached masthead.html %}
-
-  <div class="initial-content">
-    {{ content }}
-  </div>
-
-  {% if site.search == true %}
-  <div class="search-content">
-    {% include_cached search/search_form.html %}
-  </div>
-  {% endif %}
-
-  <div id="footer" class="page__footer">
-    <footer>
-      {% include footer/custom.html %}
-      {% include_cached footer.html %}
-    </footer>
-  </div>
-
-  {% include scripts.html %}
+    {% include scripts.html %}
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-icon="https://i.redd.it/40uf3et4xw0b1.png"
+  chat-title="사립유치원 챗봇"
+  agent-id="abd9e13c-f0aa-4456-aa0c-2cbb9677b234"
+  language-code="ko"
+></df-messenger>
+  </body>
+</html>
