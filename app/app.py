@@ -76,10 +76,6 @@ def find_relevant_parts(text, user_question):
 
 
 
-@app.route("/")
-def index():
-    return render_template('./index.html')
-
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.get_json()
