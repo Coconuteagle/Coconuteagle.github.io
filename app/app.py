@@ -8,7 +8,7 @@ openai.api_key = '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'
 
 import os
 
-app = Flask(__name__, template_folder=os.path.join("..", "_site"))
+app = Flask(__name__)
 
 text = '''
 사립유치원
