@@ -3,11 +3,12 @@ import openai
 from nltk.tokenize import sent_tokenize
 from flask_cors import CORS
 import os
-app = Flask(__name__)
-CORS(app)
+
 openai.api_key = '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'
 
-app = Flask(__name__)
+import os
+
+app = Flask(__name__, template_folder=os.path.join("..", "_site"))
 
 text = '''
 사립유치원
