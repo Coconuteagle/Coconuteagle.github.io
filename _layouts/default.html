@@ -51,8 +51,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
+          body {
             position: relative;
             height: 100vh;
             margin: 0;
@@ -65,125 +66,81 @@
             bottom: 20px;
             right: 20px;
             cursor: pointer;
+            z-index: 1000;
+            font-size: 20px;
         }
 
         #chat-box {
             position: fixed;
-            bottom: 20px;
+            bottom: 60px;
             right: 20px;
-            width: 450px; /* 1.5x bigger */
-            height: 600px; /* 1.5x bigger */
+            width: 60%;
+            max-width: 450px;
+            height: 60%;
+            max-height: 600px;
             background-color: white;
-            border: 1px solid gray;
-            padding: 10px;
+            padding: 0px; /* Update the padding here */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .hidden {
-            display: none;
+            z-index: 1000;
         }
 
         #messages {
-            height: 80%;
+            height: 100%;
             overflow-y: auto;
         }
 
-        .user, .bard {
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 10px;
-            clear: both;
-            font-size: 0.8em; /* smaller font */
-        }
+        @media (max-width: 600px) {
+            #chat-box {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                max-width: unset;
+                max-height: unset;
+                padding-top: 60px; /* Update the padding here as well */
+                box-sizing: border-box;
+            }
 
-        .user {
-            background-color: #0084ff;
-            color: white;
-            float: right;
-        }
-
-        .bard {
-            background-color: #f0f0f0;
-            float: left;
-        }
-
-        #chat-form {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #ccc;
-            padding: 10px;
-        }
-
-        #chat-form input[type="text"] {
-            width: 80%;
-            padding: 5px;
-            border: none;
-            border-radius: 10px;
-        }
-
-        #chat-form input[type="submit"] {
-            background-color: #0084ff;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 5px 10px;
+            #close-chat {
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                font-size: 18px;
+                cursor: pointer;
+            }
         }
     </style>
 
     <script>
         function toggleChatBox() {
             var chatBox = document.getElementById("chat-box");
-            chatBox.classList.toggle("hidden");
+            if (chatBox.style.display === "none") {
+                chatBox.style.display = "block";
+            } else {
+                chatBox.style.display = "none";
+            }
         }
-
-        function submitMessage() {
-            var input = document.getElementById("input-message");
-            var message = input.value;
-            input.value = "";
-
-            var userMessage = document.createElement("div");
-            userMessage.textContent = message;
-            userMessage.className = "user";
-            document.getElementById("messages").appendChild(userMessage);
-            scrollToBottom();  // Scroll to bottom after user message
-
-            fetch("https://port-0-flask-eu1k2llkxinia4.sel4.cloudtype.app/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ question: message })
-            }).then(response => response.json())
-            .then(data => {
-                var bardMessage = document.createElement("div");
-                bardMessage.textContent = data.answer;
-                bardMessage.className = "bard";
-                document.getElementById("messages").appendChild(bardMessage);
-                scrollToBottom();  // Scroll to bottom after chatbot message
-    });
-}
-
-
-        function scrollToBottom() {
-            var messages = document.getElementById("messages");
-            messages.scrollTop = messages.scrollHeight;
+        
+        // Use window.onload to set initial state
+        window.onload = function() {
+            var chatBox = document.getElementById("chat-box");
+            chatBox.style.display = "none";
         }
     </script>
 </head>
 <body>
     <div id="chat-icon" onclick="toggleChatBox()">
-        <img src="/static/chat_icon.png" alt="Chat Icon">
+        <span>Chat</span>
     </div>
 
-    <div id="chat-box" class="hidden">
-        <div id="messages"></div>
-        <form id="chat-form" onsubmit="event.preventDefault(); submitMessage()">
-            <input type="text" id="input-message" placeholder="Enter your message here" required>
-            <input type="submit" value="Send">
-        </form>
+    <div id="chat-box">
+        <!-- Use an iframe to display the website -->
+        <iframe src="https://port-0-flask-eu1k2llkxinia4.sel4.cloudtype.app/" width="100%" height="100%" frameborder="0" style="border:0; overflow:hidden;" allowfullscreen></iframe>
+        <!-- Add close chat button for mobile -->
+        <div id="close-chat" onclick="toggleChatBox()">×</div>
     </div>
 </body>
 </html>
+
 
 </html>
