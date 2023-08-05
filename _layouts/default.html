@@ -48,13 +48,142 @@
     </div>
 
     {% include scripts.html %}
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-icon="https://i.redd.it/40uf3et4xw0b1.png"
-  chat-title="사립유치원 챗봇"
-  agent-id="abd9e13c-f0aa-4456-aa0c-2cbb9677b234"
-  language-code="ko"
-></df-messenger>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        #chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        #chat-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 450px; /* 1.5x bigger */
+            height: 600px; /* 1.5x bigger */
+            background-color: white;
+            border: 1px solid gray;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #messages {
+            height: 80%;
+            overflow-y: auto;
+        }
+
+        .user, .bard {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            clear: both;
+            font-size: 0.8em; /* smaller font */
+        }
+
+        .user {
+            background-color: #0084ff;
+            color: white;
+            float: right;
+        }
+
+        .bard {
+            background-color: #f0f0f0;
+            float: left;
+        }
+
+        #chat-form {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        #chat-form input[type="text"] {
+            width: 80%;
+            padding: 5px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        #chat-form input[type="submit"] {
+            background-color: #0084ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+
+    <script>
+        function toggleChatBox() {
+            var chatBox = document.getElementById("chat-box");
+            chatBox.classList.toggle("hidden");
+        }
+
+        function submitMessage() {
+            var input = document.getElementById("input-message");
+            var message = input.value;
+            input.value = "";
+
+            var userMessage = document.createElement("div");
+            userMessage.textContent = message;
+            userMessage.className = "user";
+            document.getElementById("messages").appendChild(userMessage);
+            scrollToBottom();  // Scroll to bottom after user message
+
+            fetch("https://port-0-flask-eu1k2llkxinia4.sel4.cloudtype.app/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: message })
+            }).then(response => response.json())
+            .then(data => {
+                var bardMessage = document.createElement("div");
+                bardMessage.textContent = data.answer;
+                bardMessage.className = "bard";
+                document.getElementById("messages").appendChild(bardMessage);
+                scrollToBottom();  // Scroll to bottom after chatbot message
+    });
+}
+
+
+        function scrollToBottom() {
+            var messages = document.getElementById("messages");
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+</head>
+<body>
+    <div id="chat-icon" onclick="toggleChatBox()">
+        <img src="/static/chat_icon.png" alt="Chat Icon">
+    </div>
+
+    <div id="chat-box" class="hidden">
+        <div id="messages"></div>
+        <form id="chat-form" onsubmit="event.preventDefault(); submitMessage()">
+            <input type="text" id="input-message" placeholder="Enter your message here" required>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>
+
 </html>
