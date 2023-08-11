@@ -86,7 +86,19 @@
                 50% { transform: scale(0.95); }
                 100% { transform: scale(1); }
                     }
-          
+            #close-chat {
+            position: absolute;
+            top: 10px;       /* 위치 조정 */
+            right: 10px;     /* 위치 조정 */
+            font-size: 32px;
+            cursor: pointer;
+            background-color: #ffffff;  /* 배경색 추가 */
+            border-radius: 50%;         /* 원형 디자인 */
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+        }
           #chat-icon {
               animation: initialRise 1s ease forwards;
           }
@@ -98,7 +110,7 @@
 
         #chat-box {
             position: fixed;
-            bottom: 60px;
+            bottom: 77px;
             right: 20px;
             width: 60%;
             max-width: 450px;
@@ -109,6 +121,7 @@
             border-radius: 8px; /* Add rounded corners */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
             z-index: 1000;
+            padding: 0px 15px 0px 0px; /* 오른쪽 여백 추가 */
         }
 
 
@@ -137,6 +150,51 @@
                 cursor: pointer;
             }
         }
+        #chat-bubble {
+    position: fixed;
+    bottom: 12px;  /* chat-icon의 위치에 따라 조절 */
+    right: 90px;   /* chat-icon의 위치에 따라 조절 */
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 250px;  /* 최대 너비 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* 그림자 효과 */
+    z-index: 999;  /* chat-icon보다 한 단계 아래 */
+    right: 140px;
+}
+
+/* 모바일 화면에 맞게 조절 */
+@media (max-width: 600px) {
+    #chat-bubble {
+        right: 130px;
+        bottom: 75px;
+    }
+}
+#chat-bubble::before {
+    content: "";
+    position: absolute;
+    right: -10px;  /* 꼬리의 위치 조정 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid white;  /* 꼬리의 색상 설정 */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+@keyframes bubbleAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+#chat-bubble {
+    /* 기타 스타일 ... */
+    animation: bubbleAnimation 2s infinite;  /* 2초 동안 무한 반복 */
+    
+}
+
     </style>
 
     <script>
@@ -172,12 +230,14 @@ window.onload = function() {
 <body>
     <div id="chat-icon" onclick="toggleChatBox()">
     </div>
+    <div id="chat-bubble">안녕하세요 사립유치원 예결산 업무 상담용 챗봇입니다</div>
 
     <div id="chat-box">
+        <div id="close-chat" onclick="toggleChatBox()">×</div>
         <!-- Use an iframe to display the website -->
         <iframe src="https://port-0-flask-eu1k2llkxinia4.sel4.cloudtype.app/" width="100%" height="100%" frameborder="0" style="border:0; overflow:hidden;" allowfullscreen></iframe>
         <!-- Add close chat button for mobile -->
-        <div id="close-chat" onclick="toggleChatBox()">×</div>
+
     </div>
 </body>
 </html>
