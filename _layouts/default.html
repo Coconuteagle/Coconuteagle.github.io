@@ -67,7 +67,12 @@
             right: 20px;
             cursor: pointer;
             z-index: 1000;
-            font-size: 20px;
+            width: 50px;  /* Set the desired width */
+            height: 50px;  /* Set the desired height */
+            border-radius: 50%;  /* Makes it round */
+            background-image: url('path_to_your_image.jpg');  /* Replace with your image path */
+            background-size: cover;  /* Cover the entire div */
+            background-position: center;  /* Center the image */
         }
 
         #chat-box {
@@ -130,7 +135,6 @@
 </head>
 <body>
     <div id="chat-icon" onclick="toggleChatBox()">
-        <span>Chat</span>
     </div>
 
     <div id="chat-box">
