@@ -229,18 +229,21 @@ function toggleChatBox() {
         chatIcon.addEventListener('animationend', animationEndCallback);  // 애니메이션이 끝나면 callback 함수 실행
     }
     
-    if (chatBox.style.display === "none") {
-        chatBox.style.display = "block";
-    } else {
-        chatBox.style.display = "none";
-    }
-}
-
-// Use window.onload to set initial state
-window.onload = function() {
-    var chatBox = document.getElementById("chat-box");
+    if (chatBox.style.display === "" || chatBox.style.display === "none") {
+    chatBox.style.display = "block";
+} else {
     chatBox.style.display = "none";
 }
+
+}
+
+window.addEventListener('popstate', function(event) {
+    var chatBox = document.getElementById("chat-box");
+    if (event.state && event.state.chatBoxOpen) {
+        chatBox.style.display = "none";
+    }
+});
+
 
     </script>
 </head>
