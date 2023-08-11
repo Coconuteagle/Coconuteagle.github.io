@@ -76,13 +76,16 @@
               transition: transform 0.3s ease; /* Smooth transition for scaling effect */
               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
           }
-          
-          /* Initial scaling when the website is loaded */
           @keyframes initialRise {
-              0% { transform: scale(1); }
-              50% { transform: scale(1.05); }
-              100% { transform: scale(1); }
-          }
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+                    @keyframes clickAnimation {
+                0% { transform: scale(1); }
+                50% { transform: scale(0.95); }
+                100% { transform: scale(1); }
+                    }
           
           #chat-icon {
               animation: initialRise 1s ease forwards;
@@ -90,7 +93,7 @@
           
           /* Slight scaling effect when the icon is clicked */
           #chat-icon:active {
-              transform: scale(0.95);
+            animation: clickAnimation 0.3s ease forwards;
           }
 
         #chat-box {
@@ -137,20 +140,33 @@
     </style>
 
     <script>
-        function toggleChatBox() {
-            var chatBox = document.getElementById("chat-box");
-            if (chatBox.style.display === "none") {
-                chatBox.style.display = "block";
-            } else {
-                chatBox.style.display = "none";
-            }
-        }
-        
-        // Use window.onload to set initial state
-        window.onload = function() {
-            var chatBox = document.getElementById("chat-box");
-            chatBox.style.display = "none";
-        }
+        function animationEndCallback() {
+    var chatIcon = document.getElementById("chat-icon");
+    chatIcon.style.animation = 'none';  // 애니메이션 제거
+    chatIcon.removeEventListener('animationend', animationEndCallback);  // 이벤트 리스너 제거
+}
+
+function toggleChatBox() {
+    var chatIcon = document.getElementById("chat-icon");
+    var chatBox = document.getElementById("chat-box");
+    
+    if (!chatIcon.style.animation) {
+        chatIcon.addEventListener('animationend', animationEndCallback);  // 애니메이션이 끝나면 callback 함수 실행
+    }
+    
+    if (chatBox.style.display === "none") {
+        chatBox.style.display = "block";
+    } else {
+        chatBox.style.display = "none";
+    }
+}
+
+// Use window.onload to set initial state
+window.onload = function() {
+    var chatBox = document.getElementById("chat-box");
+    chatBox.style.display = "none";
+}
+
     </script>
 </head>
 <body>
