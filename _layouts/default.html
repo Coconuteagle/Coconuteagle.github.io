@@ -99,8 +99,8 @@
             text-align: center;
         }
           #chat-icon {
-             animation: IconAnimation 2s infinite;
               animation: initialRise 1s ease forwards;
+              animation: IconAnimation 2s infinite;
           }
           
           /* Slight scaling effect when the icon is clicked */
@@ -213,11 +213,12 @@
     50% { transform: translateX(-10px); }
     100% { transform: translateX(0); }
 }
-@keyframes IconAnimation {
-    0% { transform: scale(1); }     // 원래 크기
-    50% { transform: scale(1.05); } // 5% 더 크게
-    100% { transform: scale(1); }   // 원래 크기로 복귀
+      @keyframes IconAnimation  {
+    0% { transform: scale(1);  }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
+
 #chat-bubble {
     /* 기타 스타일 ... */
     animation: bubbleAnimation 2s infinite;  /* 2초 동안 무한 반복 */
