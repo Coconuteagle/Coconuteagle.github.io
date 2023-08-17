@@ -155,27 +155,29 @@
             }
         }
         #chat-bubble {
-    position: fixed;
-    bottom: 26px;  /* chat-icon의 위치에 따라 조절 */
-    right: 90px;   /* chat-icon의 위치에 따라 조절 */
-    padding: 10px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    max-width: 250px;  /* 최대 너비 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* 그림자 효과 */
-    z-index: 999;  /* chat-icon보다 한 단계 아래 */
-    right: 80px;
-   font-size: initial;
-}
+            position: fixed;
+            bottom: 26px;  /* chat-icon의 위치에 따라 조절 */
+            right: 90px;   /* chat-icon의 위치에 따라 조절 */
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            max-width: 250px;  /* 최대 너비 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* 그림자 효과 */
+            z-index: 999;  /* chat-icon보다 한 단계 아래 */
+            right: 80px;
+           font-size: initial;
+           word-wrap: break-word;
+        }
 
 /* 모바일 화면에 맞게 조절 */
-@media (max-width: 600px) {
-    #chat-bubble {
-        right: 80px;
-        bottom: 85px;
-    }
-  #chat-icon {
+      @media (max-width: 600px) {
+          #chat-bubble {
+              right: 80px;
+              bottom: 85px;
+              word-wrap: break-word;
+          }
+          #chat-icon {
               position: fixed;
               bottom: 79px;
               right: 20px;
@@ -191,18 +193,18 @@
               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
           }
 }
-#chat-bubble::before {
-    content: "";
-    position: absolute;
-    right: -10px;  /* 꼬리의 위치 조정 */
-    top: 73%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 10px solid white;  /* 꼬리의 색상 설정 */
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-}
+          #chat-bubble::before {
+              content: "";
+              position: absolute;
+              right: -10px;  /* 꼬리의 위치 조정 */
+              top: 73%;
+              transform: translateY(-50%);
+              width: 0;
+              height: 0;
+              border-left: 10px solid white;  /* 꼬리의 색상 설정 */
+              border-top: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+          }
 @keyframes bubbleAnimation {
     0% { transform: translateX(0); }
     50% { transform: translateX(-10px); }
