@@ -1,7 +1,7 @@
 /* Grid Layout */
 .grid-container {
   display: flex;
-  place-items: center;
+  place-items: center; /* 또는 align-items: center; */
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -13,78 +13,46 @@
   background-color: white;
   padding: 1px;
   border-radius: 4px;
+  border: 1px solid #eaeaea; /* 추가된 border 스타일 */
 }
 
 .grid-item .post__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20%
+  border-radius: 20%;
 }
-
 
 .tiles {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   padding: 163px;
-  padding-top: 10px;/* 추가: 모든 아이템의 높이를 동일하게 맞춤 */
+  padding-top: 10px; /* 추가: 모든 아이템의 높이를 동일하게 맞춤 */
 }
 
-.post__title {
+.post__title, .post__title a {
   font-size: 15px; /* 16px로 변경 */
   white-space: initial;
   color: black;
-  text-decoration: none !important;  /* 밑줄 제거 + !important */
+  text-decoration: none !important; /* 밑줄 제거 + !important */
   text-align: center;
-  /* Grid Layout */
-.grid-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
-.grid-item {
-  flex: 1 0 30%; /* 30%로 너비 조정 */
-  box-sizing: border-box;
-  margin: 1%;
-  background-color: white;
-  padding: 1px;
-  border: 1px solid #eaeaea;
-  border-radius: 4px;
-}
-
-.grid-item .post__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20%
-}
-
-.masthead_title{
+.masthead_title {
   font-size: 2em;
-}   
-
-
-.post__title a {
-  font-size: 22px; /* 16px로 변경 */
-  white-space: pre-line; 
-  color: black;
-  text-decoration: none;
 }
 
+/* 미디어 쿼리 */
 @media (max-width: 600px) {
   .tiles {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch; /* 추가: 모든 아이템의 높이를 동일하게 맞춤 */
-}
+    padding: 10px; /* 모바일 기기에 맞게 패딩 조정 */
+  }
 
-.post__title a {
-  font-size: 16px; /* 16px로 변경 */
-  white-space: pre-line; 
-  color: black;
-  text-decoration: none !important;
-}
+  .post__title a {
+    font-size: 16px; /* 모바일 기기에 맞게 폰트 사이즈 조정 */
+    white-space: pre-line; 
+    color: black;
+    text-decoration: none !important;
+  }
 }
