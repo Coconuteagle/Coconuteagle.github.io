@@ -13,7 +13,7 @@
   background-color: white;
   padding: 1px;
   border-radius: 4px;
-  border: 1px solid #eaeaea; /* 추가된 border 스타일 */
+  border: 0px solid #eaeaea; /* 추가된 border 스타일 */
 }
 
 .grid-item .post__image img {
