@@ -26,7 +26,9 @@
 .tiles {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch; /* 추가: 모든 아이템의 높이를 동일하게 맞춤 */
+  align-items: stretch;
+  padding: 163px;
+  padding-top: 10px;/* 추가: 모든 아이템의 높이를 동일하게 맞춤 */
 }
 
 .post__title {
